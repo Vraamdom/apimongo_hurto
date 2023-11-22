@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors') //implementa seguridadad
+const bodyParser = require('body-parser') //convierte el objeto enviado desde el formulario
 const { dbConection } = require('../database/config')
 
 
@@ -25,7 +26,8 @@ class Server{
     }
 
     middlewares(){
-        this.app.use(cors()) //indecar el uso de cors
+        this.app.use( cors() ) //indecar el uso de cors
+        this.app.use( bodyParser.json())
     }
 
     async conectarDB(){
