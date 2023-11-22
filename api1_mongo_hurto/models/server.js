@@ -1,11 +1,14 @@
 const express = require('express')
+const cors = require('cors') //implementa seguridadad
 const { dbConection } = require('../database/config')
+const bodyParser = require()
 
 class Server{
     constructor(){
         this.app = express()
         this.port = process.env.PORT
-        this.usuarioPath = '/hurto' //Ruta de la API
+        this.hurtoPath = '/hurto' //Ruta de la API
+        this.middlewares()
         this.routes()
         this.conectarDB()
     }
@@ -18,7 +21,11 @@ class Server{
         )
     }
     routes(){
-        this.app.use(this.usuarioPath, require('../routes/hurto'))
+        this.app.use(this.hurtoPath, require('../routes/hurto'))
+    }
+
+    middlewares(){
+        this.app.use(cors()) //indecar el uso de cors
     }
 
     async conectarDB(){

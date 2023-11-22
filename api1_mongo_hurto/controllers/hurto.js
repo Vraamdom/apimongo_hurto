@@ -43,7 +43,7 @@ const putHurto = async(req, res) =>{
 }
 
 const deleteHurto = async(req, res) =>{
-    const {nombre} = req.query //Desestructurar
+    const {tipo_hurto} = req.query //Desestructurar
     try {
         const hurto = await Hurto.findOneAndDelete({tipo_hurto: tipo_hurto})
             mensaje = 'Eliminacion exitosa'
