@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors') //implementa seguridadad
 const { dbConection } = require('../database/config')
-const bodyParser = require()
+
 
 class Server{
     constructor(){
